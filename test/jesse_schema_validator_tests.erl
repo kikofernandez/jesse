@@ -20,6 +20,7 @@
 
 -module(jesse_schema_validator_tests).
 -include_lib("eunit/include/eunit.hrl").
+-include_lib("jesse_schema_validator.hrl").
 
 data_invalid_test() ->
   IntegerSchema = {[{<<"type">>, <<"integer">>}]},
@@ -393,6 +394,52 @@ map_data_test_draft(URI) ->
                                               , InvalidJson
                                               , [{allowed_errors, infinity}]
                                               )).
+
+
+data_invalid_exclusive_minimum_test() ->
+
+  Schema = fun (Property, V) ->
+               {[ {<<"$schema">>, V}
+                , {<<"type">>, <<"number">>}
+                , {Property, 43}
+                ]}
+           end,
+  ValidNumber = 42,
+  %% A case without errors
+  ?assertEqual(
+    {ok, ValidNumber},
+    jesse_schema_validator:validate(Schema(<<"exclusiveMaximum">>, ?json_schema_draft6), ValidNumber, [])
+    ),
+
+  ?assertEqual(
+    {ok, ValidNumber+2},
+    jesse_schema_validator:validate(Schema(<<"exclusiveMinimum">>, ?json_schema_draft6), ValidNumber+2, [])
+    ),
+
+  ?assertThrow( [ { data_invalid,
+                    { [ { <<"$schema">> , <<"http://json-schema.org/draft-06/schema#">> }
+                      , { <<"type">> , <<"number">> }
+                      , { <<"exclusiveMinimum">> , 43 }
+                      ]
+                    }
+                  , not_in_range, 42 ,[]
+                  }
+                ],
+                jesse_schema_validator:validate(Schema(<<"exclusiveMinimum">>, ?json_schema_draft6), ValidNumber, [])
+              ),
+
+  ?assertThrow( [ { data_invalid,
+                    { [ { <<"$schema">> , <<"http://json-schema.org/draft-06/schema#">> }
+                      , { <<"type">> , <<"number">> }
+                      , { <<"exclusiveMaximum">> , 43 }
+                      ]
+                    }
+                  , not_in_range, 44 ,[]
+                  }
+                ],
+                jesse_schema_validator:validate(Schema(<<"exclusiveMaximum">>, ?json_schema_draft6), ValidNumber+2, [])
+              ).
+
 
 -endif.
 -endif.

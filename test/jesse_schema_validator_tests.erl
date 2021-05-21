@@ -397,7 +397,6 @@ map_data_test_draft(URI) ->
 
 
 data_exclusive_maximum_minimum_test() ->
-
   Schema = fun (Property, V) ->
                {[ {<<"$schema">>, V}
                 , {<<"type">>, <<"number">>}

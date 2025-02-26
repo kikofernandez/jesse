@@ -51,12 +51,12 @@ packages:
   versionInfo: "6"
   packageFileName: "./src"
 relationships:
-- spdxElementId: "SPDXRef-Project-Jesse"
-  relatedSpdxElement: "SPDXRef-Package-jesse-doc"
-  relationshipType: "CONTAINS" # Should be CONTAINS, issue with ORT
-- spdxElementId: "SPDXRef-Project-Jesse"
-  relatedSpdxElement: "SPDXRef-Package-jesse-src"
-  relationshipType: "CONTAINS" # Should be CONTAINS, issue with ORT
+- spdxElementId: "SPDXRef-Package-jesse-doc"
+  relatedSpdxElement: "SPDXRef-Project-Jesse"
+  relationshipType: "CONTAINED_BY" # Should be CONTAINS, issue with ORT
+- spdxElementId: "SPDXRef-Package-jesse-src"
+  relatedSpdxElement: "SPDXRef-Project-Jesse"
+  relationshipType: "CONTAINED_BY" # Should be CONTAINS, issue with ORT
 # - spdxElementId: "SPDXRef-Project-Jesse"
 #   relatedSpdxElement: "SPDXRef-Package-jesse-doc"
 #   relationshipType: "STATIC_LINK" # Should be CONTAINS, issue with ORT

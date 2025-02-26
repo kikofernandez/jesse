@@ -37,6 +37,19 @@ packages:
   name: "jesse-doc"
   versionInfo: "6"
   packageFileName: "./doc"
+- SPDXID: "SPDXRef-Package-jesse-test"
+  description: "Test"
+  copyrightText: "Example"
+  downloadLocation: "git+https://github.com/kikofernandez/jesse.git#doc"
+  filesAnalyzed: true
+  supplier: "Organization: Example AB"
+  originator: "Organization: Example AB"
+  homepage: "https://github.com/for-GET/jesse"
+  licenseConcluded: "Apache-2.0"
+  licenseDeclared: "Apache-2.0"
+  name: "jesse-test"
+  versionInfo: "6"
+  packageFileName: "./test"
 - SPDXID: "SPDXRef-Package-jesse-src"
   description: "Test"
   copyrightText: "Example"
@@ -53,13 +66,10 @@ packages:
 relationships:
 - spdxElementId: "SPDXRef-Package-jesse-doc"
   relatedSpdxElement: "SPDXRef-Project-Jesse"
-  relationshipType: "CONTAINED_BY" # Should be CONTAINS, issue with ORT
+  relationshipType: "DOCUMENTATION_OF" # Should be CONTAINS, issue with ORT
 - spdxElementId: "SPDXRef-Package-jesse-src"
   relatedSpdxElement: "SPDXRef-Project-Jesse"
-  relationshipType: "CONTAINED_BY" # Should be CONTAINS, issue with ORT
-# - spdxElementId: "SPDXRef-Project-Jesse"
-#   relatedSpdxElement: "SPDXRef-Package-jesse-doc"
-#   relationshipType: "STATIC_LINK" # Should be CONTAINS, issue with ORT
-# - spdxElementId: "SPDXRef-Project-Jesse"
-#   relatedSpdxElement: "SPDXRef-Package-jesse-src"
-#   relationshipType: "STATIC_LINK" # Should be CONTAINS, issue with ORT
+  relationshipType: "PACKAGE_OF" # Should be CONTAINS, issue with ORT
+- spdxElementId: "SPDXRef-Project-Jesse"
+  relatedSpdxElement: "SPDXRef-Package-jesse-test"
+  relationshipType: "TEST_OF" # Should be CONTAINS, issue with ORT

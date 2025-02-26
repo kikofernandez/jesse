@@ -1,0 +1,12 @@
+ort:
+  enableRepositoryPackageCurations: true
+  forceOverwrite: true
+
+  scanner:
+    skipConcluded: false
+    includeFilesWithoutFindings: true
+
+  analyzer:
+    allowDynamicVersions: true
+    # A flag to control whether excluded scopes and paths should be skipped during the analysis.
+    skipExcluded: true

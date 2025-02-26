@@ -57,9 +57,9 @@ relationships:
 - spdxElementId: "SPDXRef-Project-Jesse"
   relatedSpdxElement: "SPDXRef-Package-jesse-src"
   relationshipType: "CONTAINS" # Should be CONTAINS, issue with ORT
-- spdxElementId: "SPDXRef-Project-Jesse"
-  relatedSpdxElement: "SPDXRef-Package-jesse-doc"
-  relationshipType: "STATIC_LINK" # Should be CONTAINS, issue with ORT
-- spdxElementId: "SPDXRef-Project-Jesse"
-  relatedSpdxElement: "SPDXRef-Package-jesse-src"
-  relationshipType: "STATIC_LINK" # Should be CONTAINS, issue with ORT
+# - spdxElementId: "SPDXRef-Project-Jesse"
+#   relatedSpdxElement: "SPDXRef-Package-jesse-doc"
+#   relationshipType: "STATIC_LINK" # Should be CONTAINS, issue with ORT
+# - spdxElementId: "SPDXRef-Project-Jesse"
+#   relatedSpdxElement: "SPDXRef-Package-jesse-src"
+#   relationshipType: "STATIC_LINK" # Should be CONTAINS, issue with ORT

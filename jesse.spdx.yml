@@ -15,7 +15,7 @@ packages:
   description: "Jesse JSON Schema Validator"
   copyrightText: "Example"
   downloadLocation: "git+https://github.com/kikofernandez/jesse.git"
-  filesAnalyzed: false
+  filesAnalyzed: true
   homepage: "https://github.com/kikofernandez/jesse.git"
   licenseConcluded: "Apache-2.0"
   licenseDeclared: "Apache-2.0"
@@ -24,3 +24,36 @@ packages:
   name: "jesse-project"
   versionInfo: "6"
   packageFileName: "./"
+- SPDXID: "SPDXRef-Package-jesse-doc"
+  description: "Test"
+  copyrightText: "Example"
+  downloadLocation: "git+https://github.com/kikofernandez/jesse.git#doc"
+  filesAnalyzed: true
+  supplier: "Organization: Example AB"
+  originator: "Organization: Example AB"
+  homepage: "https://github.com/for-GET/jesse"
+  licenseConcluded: "Apache-2.0"
+  licenseDeclared: "Apache-2.0"
+  name: "jesse-doc"
+  versionInfo: "6"
+  packageFileName: "./doc"
+- SPDXID: "SPDXRef-Package-jesse-src"
+  description: "Test"
+  copyrightText: "Example"
+  downloadLocation: "git+https://github.com/kikofernandez/jesse.git#src"
+  filesAnalyzed: true
+  supplier: "Organization: Example AB"
+  originator: "Organization: Example AB"
+  homepage: "https://github.com/for-GET/jesse"
+  licenseConcluded: "Apache-2.0"
+  licenseDeclared: "Apache-2.0"
+  name: "jesse-src"
+  versionInfo: "6"
+  packageFileName: "./src"
+relationships:
+- spdxElementId: "SPDXRef-Project-Jesse"
+  relatedSpdxElement: "SPDXRef-Package-jesse-doc"
+  relationshipType: "CONTAINS" # Should be CONTAINS, issue with ORT
+- spdxElementId: "SPDXRef-Project-Jesse"
+  relatedSpdxElement: "SPDXRef-Package-jesse-src"
+  relationshipType: "CONTAINS" # Should be CONTAINS, issue with ORT

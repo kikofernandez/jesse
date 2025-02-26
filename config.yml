@@ -8,5 +8,6 @@ ort:
 
   analyzer:
     allowDynamicVersions: true
+    enabledPackageManagers: [Unmanaged, SpdxDocumentFile]
     # A flag to control whether excluded scopes and paths should be skipped during the analysis.
     skipExcluded: true
